@@ -41,9 +41,9 @@ case "$(uname -i)" in
   i?86)
 #    echo "x86 system architecture"
     SYSTEM_ARCH="i686";;
-#  arm*)
-#    echo "ARM system architecture"
-#    SYSTEM_ARCH="";;
+ arm*|aarch64)
+   # echo "ARM system architecture"
+   SYSTEM_ARCH="aarch64";;
   unknown|AuthenticAMD|GenuineIntel)
 #         uname -i not answer on debian, then:
     case "$(uname -m)" in
