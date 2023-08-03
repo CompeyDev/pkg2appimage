@@ -34,7 +34,7 @@ grep docker /proc/1/cgroup >/dev/null && export DOCKER_BUILD=1 || true
 
 # Detect system architecture to know which binaries of AppImage tools
 # should be downloaded and used.
-case "$(uname -i)" in
+case "$(uname -m)" in
   x86_64|amd64)
 #    echo "x86-64 system architecture"
     SYSTEM_ARCH="x86_64";;
