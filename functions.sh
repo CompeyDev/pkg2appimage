@@ -54,6 +54,9 @@ case "$(uname -i)" in
 #        echo "x86 system architecture"
         SYSTEM_ARCH="i686";;
     esac ;;
+
+    arm*|aarch*)
+      SYSTEM_ARCH="aarch64";;    
   *)
     echo "Unsupported system architecture"
     exit 1;;
