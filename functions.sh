@@ -90,7 +90,7 @@ patch_usr()
 # Download AppRun and make it executable
 get_apprun()
 {
-  TARGET_ARCH=$SYSTEM_ARCH
+  TARGET_ARCH=${SYSTEM_ARCH:-"aarch64"}
   wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/AppRun-$TARGET_ARCH -O AppRun
   chmod a+x AppRun
 }
