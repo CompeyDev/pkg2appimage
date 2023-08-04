@@ -91,7 +91,7 @@ patch_usr()
 get_apprun()
 {
   TARGET_ARCH=$SYSTEM_ARCH
-  wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/AppRun-${TARGET_ARCH} -O AppRun
+  wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/AppRun-${TARGET_ARCH:-aarch64} -O AppRun
   chmod a+x AppRun
 }
 
