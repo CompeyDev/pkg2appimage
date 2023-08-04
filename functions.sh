@@ -91,7 +91,7 @@ patch_usr()
 get_apprun()
 {
   TARGET_ARCH=$SYSTEM_ARCH
-  wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/AppRun-${TARGET_ARCH:-aarch64} -O AppRun
+  wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/AppRun-$TARGET_ARCH -O AppRun
   chmod a+x AppRun
 }
 
@@ -170,7 +170,7 @@ get_desktopintegration()
 generate_appimage()
 {
   # Download AppImageAssistant
-  URL="https://github.com/AppImage/AppImageKit/releases/download/6/AppImageAssistant_6-${SYSTEM_ARCH}.AppImage"
+  URL="https://github.com/AppImage/AppImageKit/releases/download/6/AppImageAssistant_6-$SYSTEM_ARCH.AppImage"
   wget -c "$URL" -O AppImageAssistant
   chmod a+x ./AppImageAssistant
 
@@ -193,6 +193,8 @@ generate_appimage()
       ARCH=i686
     elif [[ $INFO == *"armv6l"* ]] ; then
       ARCH=armhf
+    elif [[ $INFO == *"aarch64"* ]] ; then
+      ARCH=aarch64
     else
       echo "Could not automatically detect the architecture."
       echo "Please set the \$ARCH environment variable."
@@ -222,7 +224,7 @@ generate_type2_appimage()
   #   URL=$(wget -q "https://s3.amazonaws.com/archive.travis-ci.org/jobs/$((ID+2))/log.txt" -O - | grep "https://transfer.sh/.*/appimagetool" | tail -n 1 | sed -e 's|\r||g')
   # fi
   if [ -z "$(which appimagetool)" ] ; then
-    URL="https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-${SYSTEM_ARCH}.AppImage"
+    URL="https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-$SYSTEM_ARCH.AppImage"
     wget -c "$URL" -O appimagetool
     chmod a+x ./appimagetool
     appimagetool=$(readlink -f appimagetool)
